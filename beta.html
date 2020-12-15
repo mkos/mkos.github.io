@@ -1,0 +1,33 @@
+<html>
+<header>
+    <title>ideate this - beta functionalities</title>
+</header>
+<script language="JavaScript">
+    function run_binom() {
+        var pop_size = parseFloat(document.getElementById("population_size").value)
+        var proportion = parseFloat(document.getElementById("proportion").value)
+        document.getElementById("mean").value = pop_size * proportion
+        document.getElementById("stdev").value = Math.sqrt(pop_size * proportion * (1 - proportion)).toFixed(4)
+    }
+</script>
+<body>
+<h1>beta functionalities - use at your own risk</h1>
+<h2>binomial distribution parameters</h2>
+    <table>
+        <form name="binom">
+            <tr>
+                <th>population_size</th>
+                <th>proportion</th>
+                <th>mean</th>
+                <th>standard deviation</th>
+            </tr>
+            <tr>
+                <td><input type="text" id="population_size" onchange="run_binom()" /></td>
+                <td><input type="text" id="proportion" onchange="run_binom()"/></td>
+                <td><input type="text" id="mean" disabled/></td>
+                <td><input type="text" id="stdev" disabled/></td>
+            </tr>
+        </form>
+    </table>
+</body>
+</html>
