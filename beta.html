@@ -1,5 +1,6 @@
 <html>
 <header>
+        <title>ideate this - beta functionalities</title>
     <!-- Latest compiled and minified CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <!-- jQuery library -->
@@ -8,8 +9,8 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
     <!-- Latest compiled JavaScript -->
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-    <title>ideate this - beta functionalities</title>
-</header>
+
+
 <script language="JavaScript">
     function run_binom() {
         var pop_size = parseFloat(document.getElementById("population_size").value)
@@ -18,40 +19,37 @@
         document.getElementById("stdev").value = Math.sqrt(pop_size * proportion * (1 - proportion)).toFixed(4)
     }
 </script>
+</header>
 <body>
 <div class="alert alert-danger text-center"><strong>beta functionalities</strong> - use at your own risk</div>
 
 <div class="container">
-    <div class="row">
-        <div class="col-sm-12 text-center"><h2>binomial distribution parameters</h2></div>
-    </div>
-    <form name="binom">
         <div class="row">
-            <div class="col-xl-6">
-                <label for="population_size">population size</label>
-                <input type="text" class="form-control" id="population_size"/>
-            </div>
+            <div class="col-sm-12 text-center"><h2>binomial distribution parameters</h2></div>
+        </div>
+        <div class="row">
+            <form class="form-horizontal col-12">
+                <div class="form-group row">
+                    <label for="population_size" class="col-4 col-form-label">population size</label>
+                    <div class="col-8"><input type="text" class="form-control" id="population_size"/></div>
+                </div>
+                <div class="form-group row">
+                    <label for="proportion" class="col-4 col-form-label">proportion</label>
+                    <div class="col-8"><input type="text" class="form-control" id="proportion"/></div>
+                </div>
+                <div class="form-group row">
+                    <label for="mean" class="col-4 col-form-label">mean</label>
+                    <div class="col-8"><input type="text" class="form-control" id="mean" disabled/></div>
+                </div>
+                <div class="form-group row">
+                    <label for="stdev" class="col-4 col-form-label">standard deviation</label>
+                    <div class="col-8"><input type="text" class="form-control" id="stdev" disabled/></div>
+                </div>
 
-            <div class="col-xl-6">
-                <label for="proportion">proportion</label>
-                <input type="text" class="form-control" id="proportion"/>
-            </div>
+                <input type="button" class="btn btn-primary" onclick="run_binom()" value="run"/>
+            </form>
         </div>
-        <div class="row">
-            <div class="col-xl-6">
-                <label for="mean">mean</label>
-                <input type="text" class="form-control" id="mean" disabled/>
-            </div>
-            <div class="col-xl-6">
-                <label for="stdev">standard deviation</label>
-                <input type="text" class="form-control" id="stdev" disabled/>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-xl-12 text-center">
-                <input type="button" class="btn btn-primary mt-2 w-25" onclick="run_binom()" value="run"/></div>
-        </div>
-    </form>
+
 </div>
 
 </body>
