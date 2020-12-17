@@ -1,6 +1,7 @@
 <html>
-<header>
-        <title>ideate this - beta functionalities</title>
+<head>
+    <title>ideate this - beta functionalities</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
     <!-- Latest compiled and minified CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <!-- jQuery library -->
@@ -10,17 +11,17 @@
     <!-- Latest compiled JavaScript -->
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 
-
-<script language="JavaScript">
-    function run_binom() {
-        var pop_size = parseFloat(document.getElementById("population_size").value)
-        var proportion = parseFloat(document.getElementById("proportion").value)
-        document.getElementById("mean").value = pop_size * proportion
-        document.getElementById("stdev").value = Math.sqrt(pop_size * proportion * (1 - proportion)).toFixed(4)
-    }
-</script>
-</header>
+    <script language="JavaScript">
+        function run_binom() {
+            var pop_size = parseFloat(document.getElementById("population_size").value)
+            var proportion = parseFloat(document.getElementById("proportion").value)
+            document.getElementById("mean").value = pop_size * proportion
+            document.getElementById("stdev").value = Math.sqrt(pop_size * proportion * (1 - proportion)).toFixed(4)
+        }
+    </script>
+</head>
 <body>
+
 <div class="alert alert-danger text-center"><strong>beta functionalities</strong> - use at your own risk</div>
 
 <div class="container">
