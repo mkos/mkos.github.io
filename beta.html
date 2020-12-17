@@ -27,6 +27,30 @@
             document.getElementById("ci90").value = ci90lower.toFixed(2) + ' - ' + ci90upper.toFixed(2)
             document.getElementById("ci95").value = ci95lower.toFixed(2) + ' - ' + ci95upper.toFixed(2)
         }
+
+        function binom_coeff(n, k) {
+            if (k < 0 && k > n)
+                return 0
+            if (k == 0 && k == n)
+                return 1
+
+            k = Math.min(k, n-k)
+            var c = 1
+            var i;
+
+            for (i = 0; i < k; i++) {
+                c = c * (n - i) / (i + 1)
+            }
+
+            return c
+        }
+
+        function run_binom_coeff() {
+        var n = document.getElementById("n_elements").value
+        var k = document.getElementById("k_choices").value
+
+        document.getElementById("n_choose_k").value = binom_coeff(n, k)
+        }
     </script>
 </head>
 <body>
@@ -56,11 +80,32 @@
                     <label for="ci95" class="col-3 col-form-label">95% CI</label>
                     <div class="col-3"><input type="text" class="form-control" id="ci95" disabled/></div>
                 </div>
-
-                <input type="button" class="btn btn-primary" onclick="run_binom()" value="run"/>
+                <div class="text-center">
+                    <input type="button" class="btn btn-primary" onclick="run_binom()" value="run"/>
+                </div>
             </form>
         </div>
 
+        <div class="row">
+            <div class="col-sm-12 text-center"><h2>binomial coefficient</h2></div>
+        </div>
+        <div class="row">
+            <form class="form-horizontal col-12">
+                <div class="form-group row">
+                    <div class="col-6"><input type="text" class="form-control" id="n_elements"
+                                              placeholder="number of elements"/></div>
+                    <div class="col-6"><input type="text" class="form-control" id="k_choices"
+                                              placeholder="k_choices"/></div>
+                </div>
+                <div class="form-group row">
+                    <label for="n_choose_k" class="col-4 col-lg-3 col-xl-2 col-form-label">n-choose-k</label>
+                    <div class="col-8 col-lg-9 col-xl-10"><input type="text" class="form-control" id="n_choose_k" disabled/></div>
+                </div>
+                <div class="text-center">
+                    <input type="button" class="btn btn-primary" onclick="run_binom_coeff()" value="run"/>
+                </div>
+            </form>
+        </div>
 </div>
 
 </body>
