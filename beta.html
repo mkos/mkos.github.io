@@ -23,9 +23,9 @@
             var ci95upper = mean + stdev * 1.96
 
             document.getElementById("mean").value = mean
-            document.getElementById("stdev").value = stdev.toFixed(4)
-            document.getElementById("ci90").value = ci90lower.toFixed(2) + ' - ' + ci90upper.toFixed(2)
-            document.getElementById("ci95").value = ci95lower.toFixed(2) + ' - ' + ci95upper.toFixed(2)
+            document.getElementById("stdev").value = stdev.toFixed(2)
+            document.getElementById("ci90").value = ci90lower.toFixed(0) + ' - ' + ci90upper.toFixed(0)
+            document.getElementById("ci95").value = ci95lower.toFixed(0) + ' - ' + ci95upper.toFixed(0)
         }
 
         function binom_coeff(n, k) {
