@@ -13,10 +13,19 @@
 
     <script language="JavaScript">
         function run_binom() {
-            var pop_size = parseFloat(document.getElementById("population_size").value)
+            var pop_size = parseFloat(document.getElementById("sample_size").value)
             var proportion = parseFloat(document.getElementById("proportion").value)
-            document.getElementById("mean").value = pop_size * proportion
-            document.getElementById("stdev").value = Math.sqrt(pop_size * proportion * (1 - proportion)).toFixed(4)
+            var mean = pop_size * proportion
+            var stdev = Math.sqrt(pop_size * proportion * (1 - proportion))
+            var ci90lower = mean - stdev * 1.645
+            var ci90upper = mean + stdev * 1.645
+            var ci95lower = mean - stdev * 1.96
+            var ci95upper = mean + stdev * 1.96
+
+            document.getElementById("mean").value = mean
+            document.getElementById("stdev").value = stdev.toFixed(4)
+            document.getElementById("ci90").value = ci90lower.toFixed(2) + ' - ' + ci90upper.toFixed(2)
+            document.getElementById("ci95").value = ci95lower.toFixed(2) + ' - ' + ci95upper.toFixed(2)
         }
     </script>
 </head>
@@ -31,20 +40,21 @@
         <div class="row">
             <form class="form-horizontal col-12">
                 <div class="form-group row">
-                    <label for="population_size" class="col-4 col-form-label">population size</label>
-                    <div class="col-8"><input type="text" class="form-control" id="population_size"/></div>
+                    <div class="col-6"><input type="text" class="form-control" id="sample_size"
+                                              placeholder="sample size"/></div>
+                    <div class="col-6"><input type="text" class="form-control" id="proportion" placeholder="proportion"/></div>
                 </div>
                 <div class="form-group row">
-                    <label for="proportion" class="col-4 col-form-label">proportion</label>
-                    <div class="col-8"><input type="text" class="form-control" id="proportion"/></div>
+                    <label for="mean" class="col-3 col-form-label">mean</label>
+                    <div class="col-3"><input type="text" class="form-control" id="mean" disabled/></div>
+                    <label for="stdev" class="col-3 col-form-label">standard deviation</label>
+                    <div class="col-3"><input type="text" class="form-control" id="stdev" disabled/></div>
                 </div>
                 <div class="form-group row">
-                    <label for="mean" class="col-4 col-form-label">mean</label>
-                    <div class="col-8"><input type="text" class="form-control" id="mean" disabled/></div>
-                </div>
-                <div class="form-group row">
-                    <label for="stdev" class="col-4 col-form-label">standard deviation</label>
-                    <div class="col-8"><input type="text" class="form-control" id="stdev" disabled/></div>
+                    <label for="ci90" class="col-3 col-form-label">90% CI</label>
+                    <div class="col-3"><input type="text" class="form-control" id="ci90" disabled/></div>
+                    <label for="ci95" class="col-3 col-form-label">95% CI</label>
+                    <div class="col-3"><input type="text" class="form-control" id="ci95" disabled/></div>
                 </div>
 
                 <input type="button" class="btn btn-primary" onclick="run_binom()" value="run"/>
