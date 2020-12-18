@@ -66,6 +66,21 @@
           /* Alert the copied text */
           // alert("Copied the text: " + copyText.value);
         }
+
+        function clippaste(element_id) {
+          /* Get the text field */
+          var copyText = document.getElementById(element_id);
+          // copyText.value = window.clipboardData.getData('Text')
+          /* Select the text field */
+          copyText.select();
+          copyText.setSelectionRange(0, 99999); /* For mobile devices */
+
+          /* Copy the text inside the text field */
+          document.execCommand("paste");
+
+          /* Alert the copied text */
+          // alert("Copied the text: " + copyText.value);
+        }
     </script>
 </head>
 <body>
@@ -79,8 +94,13 @@
         <div class="row">
             <form class="form-horizontal col-12">
                 <div class="form-group row">
-                    <div class="col-6"><input type="text" class="form-control" id="sample_size"
-                                              placeholder="sample size"/></div>
+                    <div class="input-group col-6">
+                        <input type="text" class="form-control" id="sample_size" placeholder="sample size"/>
+                        <div class="input-group-append">
+                            <button class="btn btn-light" type="button"
+                                    onclick="clippaste('sample_size')">Paste</button>
+                        </div>
+                    </div>
                     <div class="col-6"><input type="text" class="form-control" id="proportion" placeholder="proportion"/></div>
                 </div>
                 <div class="form-group row">
