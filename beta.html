@@ -66,6 +66,12 @@
           /* Alert the copied text */
           // alert("Copied the text: " + copyText.value);
         }
+
+        function run_binom_dist() {
+        var n = document.getElementById("n_elements").value
+        var k = document.getElementById("k_choices").value
+        var p = document.getElementById("proba").value
+        }
     </script>
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
 </head>
@@ -83,7 +89,9 @@
                     <div class="col-5"><input type="text" class="form-control" id="sample_size"
                                               placeholder="sample size"/></div>
                     <div class="col-5"><input type="text" class="form-control" id="proportion" placeholder="proportion"/></div>
-                    <div class="col-2"><input type="button" class="btn btn-primary btn-block" onclick="run_binom()" value="run"/></div>
+                    <div class="col-2"><button type="button" class="btn btn-lg btn-primary btn-block" onclick="run_binom()" value="run">
+                        <i class="fas fa-running"></i>
+                    </button></div>
                 </div>
                 <div class="form-group form-row">
                     <label for="mean" class="col-6 col-sm-4 col-xl-2 col-form-label">mean</label>
@@ -134,8 +142,11 @@
                                               placeholder="number of elements"/></div>
                     <div class="col-5"><input type="text" class="form-control" id="k_choices"
                                               placeholder="number of choices"/></div>
-                    <div class="col-2"><input type="button" class="btn btn-primary btn-block"
-                                              onclick="run_binom_coeff()" value="run"/></div>
+                    <div class="col-2"><button type="button" class="btn btn-lg btn-primary btn-block"
+                                               onclick="run_binom_coeff()" value="run">
+                        <i class="fas fa-running"></i>
+                    </button>
+                    </div>
                 </div>
                 <div class="form-group form-row">
                     <label for="n_choose_k" class="col-4 col-lg-3 col-xl-2 col-form-label">combinations</label>
