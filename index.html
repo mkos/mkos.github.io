@@ -13,6 +13,8 @@
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
   <link rel="stylesheet" href= "https://stackpath.bootstrapcdn.com/bootswatch/4.4.1/slate/bootstrap.min.css">
   <script src="https://code.iconify.design/1/1.0.5/iconify.min.js"></script>
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css"
+        integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
 <style>
 body {
     font-family: "Raleway";
@@ -32,6 +34,17 @@ p.justified {
 }
 .iconify:hover {
   color: #DAA520
+}
+a {
+  text-decoration: underline;
+  text-decoration-style: dashed;
+  text-decoration-thickness: from-font;
+  text-underline-offset: 20%;
+  color: #aaa;
+}
+a:hover {
+  color: #DAA520;
+  text-decoration: none
 }
 </style>
 </head>
@@ -85,10 +98,28 @@ p.justified {
     </div>
   </div>
   <div class="row">
-    <div class="col-sm-12 text-right">
-      <a href="binom.html">π</a>
+    <div class="col-sm-12 text-center">
+    <h3>Projects</h3>
+      <p class="mb-5">
+  <ul class="list-inline fa-ul">
+    <li class="list-inline-item ml-3"><span class="fa-li"><i class="fas fa-angle-right"></i></span>
+        <a href="binom.html">binomial distribution calculator</a>
+        <span class="badge badge-success">new</span>
+        <span class="badge badge-light">beta</span>
+    </li>
+    <li class="list-inline-item ml-3"><span class="fa-li"><i class="fas fa-angle-right"></i></span>
+      <a href="https://github.com/mkos/squeezenet">squeezenet implementation (TF 1.x)</a></li>
+    <li class="list-inline-item ml-3"><span class="fa-li"><i class="fas fa-angle-right"></i></span>
+      <a href="https://github.com/mkos/resnet">resnet implementation (TF 1.x)</a></li>
+  </ul>
+      </p>
     </div>
   </div>
+<!--  <div class="row">-->
+<!--    <div class="col-sm-12 text-right">-->
+<!--      <a href="binom.html">π</a>-->
+<!--    </div>-->
+<!--  </div>-->
 </div>
 
 </body>
