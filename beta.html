@@ -67,10 +67,16 @@
           // alert("Copied the text: " + copyText.value);
         }
 
-        function run_binom_dist() {
-        var n = document.getElementById("n_elements").value
-        var k = document.getElementById("k_choices").value
-        var p = document.getElementById("proba").value
+        function binom_proba(k, n, p) {
+            return binom_coeff(n, k) * Math.pow(p, k) * Math.pow(1-p, n-k)
+        }
+
+        function run_binom_proba() {
+            var n = document.getElementById("n_elements_dist").value
+            var k = document.getElementById("k_choices_dist").value
+            var p = parseFloat(document.getElementById("proba").value)
+
+            document.getElementById("binom_proba").value = binom_proba(k, n, p).toFixed(4)
         }
     </script>
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
@@ -154,6 +160,42 @@
                         <input type="text" class="form-control" id="n_choose_k" readonly/>
                         <div class="input-group-append">
                             <button class="form-control btn btn-secondary" type="button" onclick="clipcopy('n_choose_k')">
+                                <i class="fas fa-copy"></i></button>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+
+
+        <div class="row">
+            <div class="col-sm-12 text-center"><h2>binomial probability</h2></div>
+        </div>
+        <div class="row">
+            <form class="form-horizontal col-12">
+                <div class="form-group form-row">
+                    <div class="col-6"><input type="text" class="form-control" id="n_elements_dist"
+                                              placeholder="# of trials"/></div>
+                    <div class="col-6"><input type="text" class="form-control" id="k_choices_dist"
+                                              placeholder="# of successes"/></div>
+                </div>
+                <div class="form-group form-row">
+                    <div class="col-10"><input type="text" class="form-control" id="proba"
+                                              placeholder="probability of success"/></div>
+                    <div class="col-2"><button type="button" class="btn btn-lg btn-primary btn-block"
+                                               onclick="run_binom_proba()" value="run">
+                        <i class="fas fa-running"></i>
+                    </button>
+                    </div>
+                </div>
+                <div class="form-group form-row">
+                    <label for="binom_proba" class="col-form-label">probability of <i>k</i> successes in <i>n</i> trials:</label>
+                </div>
+                <div class="form-row">
+                    <div class="input-group">
+                        <input type="text" class="form-control" id="binom_proba" readonly/>
+                        <div class="input-group-append">
+                            <button class="form-control btn btn-secondary" type="button" onclick="clipcopy('binom_proba')">
                                 <i class="fas fa-copy"></i></button>
                         </div>
                     </div>
